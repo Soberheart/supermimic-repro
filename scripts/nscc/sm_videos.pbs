@@ -1,0 +1,49 @@
+#!/bin/bash
+# 导出策略视频（Breezewrf/supermimic_mjlab）：每段 20 s（1000 控制步），每段两版——普通版、叠加世界模型 +0.64 s 预测版。
+# 用法（在上游代码目录提交）：
+#   cd ~/projects/supermimic_mjlab && mkdir -p logs && qsub -v CKPT_DIR=checkpoints/best,TAG=author <本仓库路径>/scripts/nscc/sm_videos.pbs
+# CKPT_DIR 里要有 policy_best.pt 和 world_model_best.pt；TAG 决定输出目录 outputs/videos_<TAG>/。
+# 计算节点没有系统 ffmpeg：用 venv 里 imageio-ffmpeg 自带的 ffmpeg，临时放进 PATH。
+#PBS -N sm_videos
+# 下一行改成自己的记账项目号（NSCC 上用 myprojects 查）
+#PBS -P <你的项目号>
+#PBS -q normal
+#PBS -l select=1:ngpus=1
+#PBS -l walltime=02:30:00
+#PBS -j oe
+#PBS -o logs/
+
+set -uo pipefail
+cd "${PBS_O_WORKDIR:?请在上游代码目录提交}"
+source .venv/bin/activate
+export PYTHONUNBUFFERED=1
+export MUJOCO_GL=egl
+CKPT_DIR=${CKPT_DIR:-checkpoints/best}
+TAG=${TAG:-author}
+OUT=outputs/videos_$TAG && mkdir -p "$OUT"
+
+FFBIN=$(mktemp -d)
+ln -s "$(python -c 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())')" "$FFBIN/ffmpeg"
+export PATH="$FFBIN:$PATH"
+echo "ffmpeg: $(command -v ffmpeg)"; ffmpeg -version | head -1
+echo "CKPT_DIR=$CKPT_DIR TAG=$TAG"; ls -la "$CKPT_DIR"
+
+CLIPS="walk1_subject1 run1_subject2 sprint1_subject2 dance2_subject1 jumps1_subject1 fallAndGetUp1_subject1"
+for clip in $CLIPS; do
+  echo "===== $clip：普通版 ====="
+  python scripts/evaluate_supermimic.py \
+    --device cuda:0 --checkpoint "$CKPT_DIR/policy_best.pt" \
+    --clips "$clip" --max-steps-per-clip 1000 \
+    --video "$OUT/${clip}.mp4" --output "$OUT/${clip}.json" \
+    --motion-dir src/assets/motions/g1/lafan1_npz
+  echo "===== $clip：世界模型预测版 ====="
+  python scripts/evaluate_supermimic.py \
+    --device cuda:0 --checkpoint "$CKPT_DIR/policy_best.pt" \
+    --world-model "$CKPT_DIR/world_model_best.pt" \
+    --clips "$clip" --max-steps-per-clip 1000 \
+    --video "$OUT/${clip}_wm.mp4" --output "$OUT/${clip}_wm.json" \
+    --motion-dir src/assets/motions/g1/lafan1_npz
+done
+
+ls -la "$OUT"
+echo "JOB_FINISHED: $OUT"

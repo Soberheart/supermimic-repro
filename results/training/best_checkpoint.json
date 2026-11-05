@@ -1,0 +1,14 @@
+{
+  "selection": "successes_then_normalized_return",
+  "evaluation": {
+    "iteration": 15000,
+    "successes": 40,
+    "normalized_return": 0.8522538567404434,
+    "motion_count": 40,
+    "mean_completion": 1.0,
+    "evaluation_limit": null,
+    "evaluation_wall_seconds": 248.90547116752714
+  },
+  "policy": "policy_iteration_015000.pt",
+  "world_model": "world_model_iteration_015000.pt"
+}

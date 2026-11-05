@@ -1,0 +1,872 @@
+{
+  "seed": 0,
+  "evaluation_num_envs": 40,
+  "termination_enabled": true,
+  "evaluation_mode": "standard",
+  "motions": [
+    {
+      "motion": "dance1_subject1",
+      "steps": 6573,
+      "expected_steps": 6573,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 515.1981767655961,
+      "normalized_return": 0.7838097927363397,
+      "mean_errors": {
+        "body_position_error": 0.047384966565382484,
+        "body_orientation_error": 0.1803001905126231,
+        "root_position_error": 1.0472943321336627,
+        "root_orientation_error": 0.0912049613665196
+      }
+    },
+    {
+      "motion": "dance1_subject2",
+      "steps": 6573,
+      "expected_steps": 6573,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 478.2606583889574,
+      "normalized_return": 0.7276139637744673,
+      "mean_errors": {
+        "body_position_error": 0.0528237539890881,
+        "body_orientation_error": 0.2183010439215168,
+        "root_position_error": 0.8133386202312154,
+        "root_orientation_error": 0.11889059790947103
+      }
+    },
+    {
+      "motion": "dance1_subject3",
+      "steps": 6573,
+      "expected_steps": 6573,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 542.5821919962764,
+      "normalized_return": 0.8254711577609559,
+      "mean_errors": {
+        "body_position_error": 0.04584650812281227,
+        "body_orientation_error": 0.17728122430868423,
+        "root_position_error": 0.7353708621463544,
+        "root_orientation_error": 0.07660572496614047
+      }
+    },
+    {
+      "motion": "dance2_subject1",
+      "steps": 11283,
+      "expected_steps": 11283,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 831.7545960787684,
+      "normalized_return": 0.7371750386233877,
+      "mean_errors": {
+        "body_position_error": 0.05616792978099481,
+        "body_orientation_error": 0.21140610782982114,
+        "root_position_error": 3.7135657331861935,
+        "root_orientation_error": 0.0950386375302323
+      }
+    },
+    {
+      "motion": "dance2_subject2",
+      "steps": 11283,
+      "expected_steps": 11283,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 840.4939673971385,
+      "normalized_return": 0.7449206482293171,
+      "mean_errors": {
+        "body_position_error": 0.05405399961656069,
+        "body_orientation_error": 0.21285807299669948,
+        "root_position_error": 1.8573899631993147,
+        "root_orientation_error": 0.10819734587226132
+      }
+    },
+    {
+      "motion": "dance2_subject3",
+      "steps": 11283,
+      "expected_steps": 11283,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 928.6067244075239,
+      "normalized_return": 0.8230140250000212,
+      "mean_errors": {
+        "body_position_error": 0.04471342018545024,
+        "body_orientation_error": 0.1705707164480787,
+        "root_position_error": 0.9938927186973446,
+        "root_orientation_error": 0.07007230479151524
+      }
+    },
+    {
+      "motion": "dance2_subject4",
+      "steps": 2997,
+      "expected_steps": 11283,
+      "completion": 0.2656208455198086,
+      "success": false,
+      "terminated": true,
+      "failure_detected": true,
+      "first_failure_step": 2997,
+      "detected_failure_reasons": [
+        "height_failure"
+      ],
+      "failure_reason": "height_failure",
+      "evaluation_limited": false,
+      "return": 232.96310350298882,
+      "normalized_return": 0.20647266108569426,
+      "mean_errors": {
+        "body_position_error": 0.05727334085896656,
+        "body_orientation_error": 0.22233653853501048,
+        "root_position_error": 0.6192941120988076,
+        "root_orientation_error": 0.09627116122088822
+      }
+    },
+    {
+      "motion": "dance2_subject5",
+      "steps": 11283,
+      "expected_steps": 11283,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 912.6859948374331,
+      "normalized_return": 0.8089036557984872,
+      "mean_errors": {
+        "body_position_error": 0.04540758729746183,
+        "body_orientation_error": 0.16655797490175392,
+        "root_position_error": 3.885837522420699,
+        "root_orientation_error": 0.08896456457086638
+      }
+    },
+    {
+      "motion": "fallAndGetUp1_subject1",
+      "steps": 8155,
+      "expected_steps": 8410,
+      "completion": 0.9696789536266349,
+      "success": false,
+      "terminated": true,
+      "failure_detected": true,
+      "first_failure_step": 8155,
+      "detected_failure_reasons": [
+        "tilt_failure"
+      ],
+      "failure_reason": "tilt_failure",
+      "evaluation_limited": false,
+      "return": 533.2459581836883,
+      "normalized_return": 0.6340617814312585,
+      "mean_errors": {
+        "body_position_error": 0.09311697174144588,
+        "body_orientation_error": 0.5052248391858973,
+        "root_position_error": 2.4955204613371462,
+        "root_orientation_error": 0.1789135677274602
+      }
+    },
+    {
+      "motion": "fallAndGetUp1_subject4",
+      "steps": 8410,
+      "expected_steps": 8410,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 547.2181669044076,
+      "normalized_return": 0.6506755849041707,
+      "mean_errors": {
+        "body_position_error": 0.10644692260930902,
+        "body_orientation_error": 0.5505776568507503,
+        "root_position_error": 0.9961676515951392,
+        "root_orientation_error": 0.18280361897514757
+      }
+    },
+    {
+      "motion": "fallAndGetUp1_subject5",
+      "steps": 2881,
+      "expected_steps": 8410,
+      "completion": 0.34256837098692033,
+      "success": false,
+      "terminated": true,
+      "failure_detected": true,
+      "first_failure_step": 2881,
+      "detected_failure_reasons": [
+        "height_failure"
+      ],
+      "failure_reason": "height_failure",
+      "evaluation_limited": false,
+      "return": 189.28686320059933,
+      "normalized_return": 0.22507355909702656,
+      "mean_errors": {
+        "body_position_error": 0.09020923318245042,
+        "body_orientation_error": 0.3882751318457039,
+        "root_position_error": 0.6273786472551025,
+        "root_orientation_error": 0.1938018502012291
+      }
+    },
+    {
+      "motion": "fallAndGetUp2_subject2",
+      "steps": 8195,
+      "expected_steps": 8195,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 539.1264662174508,
+      "normalized_return": 0.6578724419981096,
+      "mean_errors": {
+        "body_position_error": 0.1041635672065763,
+        "body_orientation_error": 0.5642456331509071,
+        "root_position_error": 0.8597045302168166,
+        "root_orientation_error": 0.18006072194647052
+      }
+    },
+    {
+      "motion": "fallAndGetUp2_subject3",
+      "steps": 8195,
+      "expected_steps": 8195,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 525.9788009617478,
+      "normalized_return": 0.6418289212467941,
+      "mean_errors": {
+        "body_position_error": 0.12958923742661504,
+        "body_orientation_error": 0.7004809720295097,
+        "root_position_error": 0.6526430985951981,
+        "root_orientation_error": 0.27639500343067774
+      }
+    },
+    {
+      "motion": "fallAndGetUp3_subject1",
+      "steps": 5108,
+      "expected_steps": 5108,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 385.4158007251099,
+      "normalized_return": 0.7545336740898784,
+      "mean_errors": {
+        "body_position_error": 0.06506904421624718,
+        "body_orientation_error": 0.26420574814530445,
+        "root_position_error": 0.5371597822893779,
+        "root_orientation_error": 0.10912365610621937
+      }
+    },
+    {
+      "motion": "fight1_subject2",
+      "steps": 12243,
+      "expected_steps": 12243,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 925.4096670651343,
+      "normalized_return": 0.755868387703287,
+      "mean_errors": {
+        "body_position_error": 0.051553724862519204,
+        "body_orientation_error": 0.19054951658772895,
+        "root_position_error": 2.326333985543408,
+        "root_orientation_error": 0.1231701504739401
+      }
+    },
+    {
+      "motion": "fight1_subject3",
+      "steps": 12243,
+      "expected_steps": 12243,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 963.3629316611332,
+      "normalized_return": 0.7868683587855372,
+      "mean_errors": {
+        "body_position_error": 0.05379141784347408,
+        "body_orientation_error": 0.18608249459249235,
+        "root_position_error": 1.1086523154246353,
+        "root_orientation_error": 0.0967315501175217
+      }
+    },
+    {
+      "motion": "fight1_subject5",
+      "steps": 12243,
+      "expected_steps": 12243,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 982.4677013754845,
+      "normalized_return": 0.8024730061059254,
+      "mean_errors": {
+        "body_position_error": 0.048261465475364536,
+        "body_orientation_error": 0.16834427572754554,
+        "root_position_error": 1.969143367062792,
+        "root_orientation_error": 0.09350366528049132
+      }
+    },
+    {
+      "motion": "fightAndSports1_subject1",
+      "steps": 12256,
+      "expected_steps": 12256,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 934.7187693620799,
+      "normalized_return": 0.7626621812680155,
+      "mean_errors": {
+        "body_position_error": 0.058912298451594194,
+        "body_orientation_error": 0.19953877321297336,
+        "root_position_error": 4.082389171639563,
+        "root_orientation_error": 0.10875205367351401
+      }
+    },
+    {
+      "motion": "fightAndSports1_subject4",
+      "steps": 12256,
+      "expected_steps": 12256,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 949.926124362275,
+      "normalized_return": 0.7750702711833183,
+      "mean_errors": {
+        "body_position_error": 0.055176017006908426,
+        "body_orientation_error": 0.20551711061055097,
+        "root_position_error": 1.7976074044724482,
+        "root_orientation_error": 0.10133584768809004
+      }
+    },
+    {
+      "motion": "jumps1_subject1",
+      "steps": 12221,
+      "expected_steps": 12221,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 973.0246490240097,
+      "normalized_return": 0.796190695543744,
+      "mean_errors": {
+        "body_position_error": 0.04527688673747327,
+        "body_orientation_error": 0.16096708223451697,
+        "root_position_error": 0.8307483173298598,
+        "root_orientation_error": 0.08223876410761438
+      }
+    },
+    {
+      "motion": "jumps1_subject2",
+      "steps": 12221,
+      "expected_steps": 12221,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 860.5839904793538,
+      "normalized_return": 0.704184592487811,
+      "mean_errors": {
+        "body_position_error": 0.11184933617409745,
+        "body_orientation_error": 0.47150564984660104,
+        "root_position_error": 1.5770699020928618,
+        "root_orientation_error": 0.3949652551860821
+      }
+    },
+    {
+      "motion": "jumps1_subject5",
+      "steps": 12221,
+      "expected_steps": 12221,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 945.7187723983079,
+      "normalized_return": 0.7738472894184664,
+      "mean_errors": {
+        "body_position_error": 0.05710440656476143,
+        "body_orientation_error": 0.1943696119322874,
+        "root_position_error": 2.245708854078592,
+        "root_orientation_error": 0.11133522759288093
+      }
+    },
+    {
+      "motion": "run1_subject2",
+      "steps": 11890,
+      "expected_steps": 11890,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 958.5929546914995,
+      "normalized_return": 0.8062177920029432,
+      "mean_errors": {
+        "body_position_error": 0.0371954040743232,
+        "body_orientation_error": 0.1456853447157711,
+        "root_position_error": 1.7895299793190558,
+        "root_orientation_error": 0.09666267876298683
+      }
+    },
+    {
+      "motion": "run1_subject5",
+      "steps": 11890,
+      "expected_steps": 11890,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 909.3561160899699,
+      "normalized_return": 0.7648074988141041,
+      "mean_errors": {
+        "body_position_error": 0.04545626174807361,
+        "body_orientation_error": 0.1767032879649891,
+        "root_position_error": 4.255471366452843,
+        "root_orientation_error": 0.10213402696901618
+      }
+    },
+    {
+      "motion": "run2_subject1",
+      "steps": 12240,
+      "expected_steps": 12240,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 957.3360021077096,
+      "normalized_return": 0.7821372566239458,
+      "mean_errors": {
+        "body_position_error": 0.042785473188402104,
+        "body_orientation_error": 0.16348437600391705,
+        "root_position_error": 1.4033049284802557,
+        "root_orientation_error": 0.08568545130375937
+      }
+    },
+    {
+      "motion": "run2_subject4",
+      "steps": 12240,
+      "expected_steps": 12240,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 953.8411363642663,
+      "normalized_return": 0.7792819741538123,
+      "mean_errors": {
+        "body_position_error": 0.04419145684229329,
+        "body_orientation_error": 0.17324404470908633,
+        "root_position_error": 1.0117116784528442,
+        "root_orientation_error": 0.08517864046107028
+      }
+    },
+    {
+      "motion": "sprint1_subject2",
+      "steps": 13655,
+      "expected_steps": 13655,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 1112.2393612470478,
+      "normalized_return": 0.8145290086027446,
+      "mean_errors": {
+        "body_position_error": 0.037273689473599624,
+        "body_orientation_error": 0.13565416592314802,
+        "root_position_error": 1.9930080918729898,
+        "root_orientation_error": 0.0829237009736248
+      }
+    },
+    {
+      "motion": "sprint1_subject4",
+      "steps": 13655,
+      "expected_steps": 13655,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 1078.9315153229982,
+      "normalized_return": 0.7901365912288526,
+      "mean_errors": {
+        "body_position_error": 0.04453869634793873,
+        "body_orientation_error": 0.15224446278871612,
+        "root_position_error": 2.422787985979695,
+        "root_orientation_error": 0.07235241432047436
+      }
+    },
+    {
+      "motion": "walk1_subject1",
+      "steps": 13065,
+      "expected_steps": 13065,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 1133.0816314443946,
+      "normalized_return": 0.8672649303056981,
+      "mean_errors": {
+        "body_position_error": 0.038413239099331975,
+        "body_orientation_error": 0.13975145414505843,
+        "root_position_error": 0.6027094638489409,
+        "root_orientation_error": 0.08531158738119127
+      }
+    },
+    {
+      "motion": "walk1_subject2",
+      "steps": 13065,
+      "expected_steps": 13065,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 1105.615959232673,
+      "normalized_return": 0.8462426017854368,
+      "mean_errors": {
+        "body_position_error": 0.0333528209020734,
+        "body_orientation_error": 0.1235884224357981,
+        "root_position_error": 1.9187954662633857,
+        "root_orientation_error": 0.08264598005194283
+      }
+    },
+    {
+      "motion": "walk1_subject5",
+      "steps": 13065,
+      "expected_steps": 13065,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 1098.8584810085595,
+      "normalized_return": 0.8410704026089242,
+      "mean_errors": {
+        "body_position_error": 0.03968495241060876,
+        "body_orientation_error": 0.14099101465618843,
+        "root_position_error": 1.2700277148344625,
+        "root_orientation_error": 0.08893457772762689
+      }
+    },
+    {
+      "motion": "walk2_subject1",
+      "steps": 11908,
+      "expected_steps": 11908,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 977.3844194896519,
+      "normalized_return": 0.8207796603037051,
+      "mean_errors": {
+        "body_position_error": 0.04521495481894524,
+        "body_orientation_error": 0.17247710586267406,
+        "root_position_error": 0.8183976421120952,
+        "root_orientation_error": 0.08288525356300695
+      }
+    },
+    {
+      "motion": "walk2_subject3",
+      "steps": 11908,
+      "expected_steps": 11908,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 991.4910511462949,
+      "normalized_return": 0.8326260086885244,
+      "mean_errors": {
+        "body_position_error": 0.04775033406206264,
+        "body_orientation_error": 0.1727900202193685,
+        "root_position_error": 1.4342526690099828,
+        "root_orientation_error": 0.0830695590970881
+      }
+    },
+    {
+      "motion": "walk2_subject4",
+      "steps": 11908,
+      "expected_steps": 11908,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 1004.1944189351052,
+      "normalized_return": 0.8432939359549086,
+      "mean_errors": {
+        "body_position_error": 0.03851890548870348,
+        "body_orientation_error": 0.14580258570435037,
+        "root_position_error": 1.1263104918037106,
+        "root_orientation_error": 0.06701924618392763
+      }
+    },
+    {
+      "motion": "walk3_subject1",
+      "steps": 12330,
+      "expected_steps": 12330,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 1013.5666791480035,
+      "normalized_return": 0.8220329920097351,
+      "mean_errors": {
+        "body_position_error": 0.04986059550208773,
+        "body_orientation_error": 0.2022942454644025,
+        "root_position_error": 0.8365247284633992,
+        "root_orientation_error": 0.07931889462645791
+      }
+    },
+    {
+      "motion": "walk3_subject2",
+      "steps": 12330,
+      "expected_steps": 12330,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 1065.3474388625473,
+      "normalized_return": 0.8640287419809791,
+      "mean_errors": {
+        "body_position_error": 0.032443084416265956,
+        "body_orientation_error": 0.11956908589067347,
+        "root_position_error": 1.003379344248284,
+        "root_orientation_error": 0.07266785503868906
+      }
+    },
+    {
+      "motion": "walk3_subject3",
+      "steps": 12330,
+      "expected_steps": 12330,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 976.4305650386959,
+      "normalized_return": 0.7919144890824784,
+      "mean_errors": {
+        "body_position_error": 0.06717529805703429,
+        "body_orientation_error": 0.21807150427442398,
+        "root_position_error": 3.608827234894779,
+        "root_orientation_error": 0.11244928363664566
+      }
+    },
+    {
+      "motion": "walk3_subject4",
+      "steps": 12330,
+      "expected_steps": 12330,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 1010.722043042304,
+      "normalized_return": 0.8197259067658589,
+      "mean_errors": {
+        "body_position_error": 0.05272608631931016,
+        "body_orientation_error": 0.236794705740618,
+        "root_position_error": 0.7935377447768277,
+        "root_orientation_error": 0.07805918068370109
+      }
+    },
+    {
+      "motion": "walk3_subject5",
+      "steps": 12330,
+      "expected_steps": 12330,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 1022.2503002360463,
+      "normalized_return": 0.8290756692911974,
+      "mean_errors": {
+        "body_position_error": 0.04841986702583634,
+        "body_orientation_error": 0.15386237163347435,
+        "root_position_error": 3.4090735930604263,
+        "root_orientation_error": 0.08440415513152612
+      }
+    },
+    {
+      "motion": "walk4_subject1",
+      "steps": 8195,
+      "expected_steps": 8195,
+      "completion": 1.0,
+      "success": true,
+      "terminated": false,
+      "failure_detected": false,
+      "first_failure_step": null,
+      "detected_failure_reasons": [],
+      "failure_reason": null,
+      "evaluation_limited": false,
+      "return": 728.489116050303,
+      "normalized_return": 0.8889433996953057,
+      "mean_errors": {
+        "body_position_error": 0.03369169603809351,
+        "body_orientation_error": 0.1269172606865868,
+        "root_position_error": 0.4770258577112074,
+        "root_orientation_error": 0.06969110666546355
+      }
+    }
+  ],
+  "successes": 37,
+  "success_rate": 0.925,
+  "n_failed": 3,
+  "failed": [
+    "dance2_subject4",
+    "fallAndGetUp1_subject1",
+    "fallAndGetUp1_subject5"
+  ],
+  "mean_completion": 0.9644467042533341,
+  "evaluation_complete": true,
+  "normalized_return": 0.7545675137042793,
+  "normalized_return_framew": 0.7625427174054304,
+  "protocol": "first frame; full clip unless explicitly limited; deterministic policy; friction 1.0; no reset/sensor/action noise or domain randomization; self collisions disabled; height/tilt failure termination enabled",
+  "normalization": "per-clip undiscounted reward / (5 * control_dt * (frames - 1)); arithmetic mean over clips; no reward after failure",
+  "evaluation_wall_seconds": 248.11526971496642,
+  "iteration": 6000,
+  "training_environment_steps": 61571072,
+  "evaluation_limit": null
+}

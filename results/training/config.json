@@ -1,0 +1,109 @@
+{
+  "config": {
+    "seed": 0,
+    "num_envs": 4096,
+    "capacity": 1000,
+    "warmup_steps": 32,
+    "wm_only_iters": 0,
+    "collect_steps": 5,
+    "updates_per_collect": 2,
+    "wm_batches": 10,
+    "wm_batch_size": 2048,
+    "policy_batch_size": 4096,
+    "horizon": 32,
+    "critic_epochs": 5,
+    "critic_minibatches": 4,
+    "learning_rate": 0.0002,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "action_noise": 0.1,
+    "episode_length_s": 10.0,
+    "world_dims": [
+      2048,
+      2048,
+      2048
+    ],
+    "actor_dims": [
+      2048,
+      1024,
+      512,
+      256
+    ],
+    "critic_dims": [
+      256,
+      128
+    ],
+    "clips": [],
+    "termination_mode": "learned",
+    "relative_orientation": false,
+    "motion_anchor_ori_b": true,
+    "diagnostics_batch_size": 64,
+    "compile": false,
+    "amp": "none",
+    "reference_dim": 2680,
+    "actor_input_normalization": true,
+    "critic_input_normalization": true,
+    "world_prediction": "state_delta",
+    "world_model_normalization": true,
+    "robot": "g1_29dof"
+  },
+  "total_iterations": 15000,
+  "device": "cuda:0",
+  "manifest": "src/assets/motions/g1/lafan1_npz/manifest.json",
+  "manifest_sha256": "2778751182e379ac16ac0f73b555c8f6a14baaabffe3dff471d2b4398b4c221d",
+  "runtime": {
+    "torch": "2.14.1+cu126",
+    "mujoco": "3.16.0",
+    "mujoco-warp": "3.8.1",
+    "warp-lang": "1.12.0"
+  },
+  "robot_signature": "8b282fb1f66b710f89199a10caf44ff3ace7b123a46918ac9b6fa8d93488d3d2",
+  "reference_schema": "full_body_268",
+  "execution": {
+    "compiled": false,
+    "mlp_precision": "none",
+    "physics_precision": "fp32"
+  },
+  "simulation": {
+    "physics_protocol_version": 2,
+    "self_collisions": false,
+    "training_reset_noise": {
+      "position_m": [
+        0.05,
+        0.05,
+        0.01
+      ],
+      "rotation_vector_rad": [
+        0.1,
+        0.1,
+        0.2
+      ],
+      "linear_velocity_m_s": [
+        0.5,
+        0.5,
+        0.2
+      ],
+      "angular_velocity_rad_s": [
+        0.52,
+        0.52,
+        0.78
+      ],
+      "joint_position_rad": 0.1
+    },
+    "randomization_schedule": {
+      "foot_friction": "startup",
+      "torso_com": "startup",
+      "encoder_bias": "reset"
+    },
+    "nconmax": 128,
+    "njmax": 1024,
+    "physics_dt": 0.005,
+    "control_dt": 0.02,
+    "solver_iterations": 10
+  },
+  "evaluation_limit": null,
+  "evaluation_max_envs": 64,
+  "full_checkpoint_interval": 0,
+  "best_checkpoint_selection": "successes_then_normalized_return",
+  "resume": null
+}

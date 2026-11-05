@@ -1,0 +1,23 @@
+# 凭据：永远不进仓库
+.env
+*.env
+*.key
+*.pem
+id_*
+*credentials*
+*token*
+
+# 大文件：只留在 NSCC
+*.pt
+*.pth
+*.npz
+*.mp4
+*.gif
+*.tar
+*.tar.gz
+*.h5
+outputs/
+data/
+logs/
+.venv/
+__pycache__/

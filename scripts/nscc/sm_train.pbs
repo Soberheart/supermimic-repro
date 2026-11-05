@@ -1,0 +1,56 @@
+#!/bin/bash
+# 正式训练（Breezewrf/supermimic_mjlab），作者的最佳配置：40/40、归一化回报 0.8526。
+# 作者硬件：RTX A6000 48GB，15000 轮约 4 h。这里用 A100 40GB；脚本开了 TF32，速度应该相近，但显存少 8 GB。
+# 如果日志里出现 CUDA out of memory：把 NUM_ENVS 和 BATCH 都改成 2048 再提交（会和作者结果有出入）。
+# 断了续训：python scripts/train_supermimic.py --robot g1_29dof --device cuda:0 --resume <RUN_ROOT>/train/last.pt --iterations 15000
+# 用法：cd ~/projects/supermimic_mjlab && mkdir -p logs && qsub <本仓库路径>/scripts/nscc/sm_train.pbs
+# 计费：walltime 8 h 预扣 512 SU，用不完退回。
+#PBS -N sm_train
+# 下一行改成自己的记账项目号（NSCC 上用 myprojects 查）
+#PBS -P <你的项目号>
+#PBS -q normal
+#PBS -l select=1:ngpus=1
+#PBS -l walltime=08:00:00
+#PBS -j oe
+#PBS -o logs/
+
+set -euo pipefail
+cd "${PBS_O_WORKDIR:?请在仓库根目录提交}"
+source .venv/bin/activate
+export PYTHONUNBUFFERED=1
+export MUJOCO_GL=egl
+
+NUM_ENVS=4096
+BATCH=4096
+# 断点可能很大，放 Scratch。注意：train_supermimic.py 要求 --output 目录事先不存在，
+# 所以日志和 nvidia-smi 放在上一级 RUN_ROOT，训练输出放 RUN_ROOT/train（不要提前创建）。
+RUN_ROOT=/scratch/users/ntu/$USER/supermimic/run_$(date +%m%d_%H%M%S)
+mkdir -p "$RUN_ROOT"
+OUT="$RUN_ROOT/train"
+nvidia-smi > "$RUN_ROOT/nvidia-smi.txt"
+
+python scripts/train_supermimic.py \
+  --robot g1_29dof \
+  --device cuda:0 \
+  --reference-dim 2680 \
+  --world-prediction state_delta \
+  --actor-input-normalization --critic-input-normalization \
+  --world-model-normalization --motion-anchor-ori-b \
+  --amp none --no-compile \
+  --seed 0 \
+  --num-envs $NUM_ENVS --capacity 1000 \
+  --warmup-steps 32 --wm-only-iters 0 \
+  --collect-steps 5 --updates-per-collect 2 \
+  --wm-batches 10 --wm-batch-size 2048 \
+  --policy-batch-size $BATCH --horizon 32 \
+  --critic-epochs 5 --critic-minibatches 4 \
+  --learning-rate 2e-4 \
+  --world-dims 2048 2048 2048 \
+  --actor-dims 2048 1024 512 256 \
+  --critic-dims 256 128 \
+  --iterations 15000 \
+  --eval-interval 1000 --checkpoint-interval 1000 \
+  --output "$OUT" \
+  2>&1 | tee "$RUN_ROOT/train.log"
+
+echo "JOB_FINISHED: $RUN_ROOT   （训练输出在 $OUT；要保留的 policy_best.pt / world_model_best.pt 拷回 Home）"
