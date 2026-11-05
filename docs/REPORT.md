@@ -48,11 +48,22 @@
 
 ### 2.3 演示
 
-<img src="assets/gifs/dance2_subject1_wm_author_vs_mine.gif" width="800">
+<img src="assets/gifs/fallAndGetUp1_subject1_author_vs_mine.gif" width="800">
 
-左：上游发布的权重；右：本复现自训权重（跳舞，带世界模型 +0.64 s 预测）。更多：[摔倒起身](assets/gifs/fallAndGetUp1_subject1_author_vs_mine.gif)、[跳跃](assets/gifs/jumps1_subject1_author_vs_mine.gif)、[冲刺](assets/gifs/sprint1_subject2_author_vs_mine.gif)。
+左：上游发布的权重；右：本复现自训权重（摔倒后起身）。更多：[跳跃](assets/gifs/jumps1_subject1_author_vs_mine.gif)、[冲刺](assets/gifs/sprint1_subject2_author_vs_mine.gif)、[跳舞 + 世界模型预测](assets/gifs/dance2_subject1_wm_author_vs_mine.gif)。
 
 两组权重各导出 6 段（走、跑、冲刺、跳舞、跳跃、摔倒起身）× 2 版（普通 / 叠加世界模型预测）的 20 s 视频（960×540，50 fps），保存在 NSCC，不进仓库。
+
+### 2.4 世界模型的长程预测
+
+叠加版视频里的橙色机器人，是世界模型从当前真实状态出发、让策略在模型里推演 32 步（0.64 s）后的预测。它与同一时刻真实状态的误差（6 段平均）：
+
+| | 根部位置 | 根部朝向 | 身体各部位平均位置（MPJPE） |
+|---|---|---|---|
+| 上游发布的权重 | 0.49 m | 0.79 rad | 0.50 m |
+| 本复现的权重 | 0.43 m | 0.99 rad | 0.46 m |
+
+两组同样很大，说明这是方法与实现本身的特性：世界模型按 8 步自回归训练（训练末 8 步损失 0.009），32 步属于 4 倍外推，且推演中策略对着想象状态出招，误差累积，偏离数据分布后会出现不合物理的姿态。训练依然有效，因为想象总从真实状态出发、主要提供局部梯度方向，远处步数按预测存活概率降权并由 critic 自举；最终成绩完全在真实物理中测得。
 
 ## 3. 环境与配置
 

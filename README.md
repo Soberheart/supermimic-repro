@@ -5,10 +5,10 @@
 基于社区复现 [Breezewrf/supermimic_mjlab](https://github.com/Breezewrf/supermimic_mjlab)，上游代码未改动。
 
 <p align="center">
-  <img src="docs/assets/gifs/dance2_subject1_wm_author_vs_mine.gif" alt="跳舞：左为上游发布的权重，右为本复现自己训练的权重" width="800">
+  <img src="docs/assets/gifs/fallAndGetUp1_subject1_author_vs_mine.gif" alt="摔倒后起身：左为上游发布的权重，右为本复现自己训练的权重" width="800">
 </p>
-<p align="center"><sub>跳舞片段 · <b>左：上游发布的权重</b> · <b>右：本复现从头训练的权重</b><br>
-实体机器人 = 策略在 MuJoCo Warp 物理仿真中的表现；蓝色半透明 = 参考动作；橙色 = 世界模型预测的 0.64 秒后</sub></p>
+<p align="center"><sub>摔倒后起身 · <b>左：上游发布的权重</b> · <b>右：本复现从头训练的权重</b><br>
+实体机器人 = 策略在 MuJoCo Warp 物理仿真中的表现；蓝色半透明 = 要跟踪的参考动作</sub></p>
 
 ## 结果
 
@@ -30,13 +30,28 @@
 ### 更多片段（本复现自己训练的权重）
 
 <p align="center">
-  <img src="docs/assets/gifs/fallAndGetUp1_subject1_mine_small.gif" alt="摔倒后起身" width="32%">
-  <img src="docs/assets/gifs/jumps1_subject1_mine_small.gif" alt="跳跃" width="32%">
-  <img src="docs/assets/gifs/sprint1_subject2_mine_small.gif" alt="冲刺" width="32%">
+  <img src="docs/assets/gifs/jumps1_subject1_mine_small.gif" alt="跳跃" width="48%">
+  <img src="docs/assets/gifs/sprint1_subject2_mine_small.gif" alt="冲刺" width="48%">
 </p>
-<p align="center"><sub>摔倒后起身 · 跳跃 · 冲刺</sub></p>
+<p align="center"><sub>跳跃 · 冲刺</sub></p>
 
-与上游权重的左右对比：[摔倒起身](docs/assets/gifs/fallAndGetUp1_subject1_author_vs_mine.gif) · [跳跃](docs/assets/gifs/jumps1_subject1_author_vs_mine.gif) · [冲刺](docs/assets/gifs/sprint1_subject2_author_vs_mine.gif)。GIF 由 [`scripts/nscc/make_gifs.sh`](scripts/nscc/make_gifs.sh) 从评测视频截取（每段 8 秒、12 fps）。
+与上游权重的左右对比：[跳跃](docs/assets/gifs/jumps1_subject1_author_vs_mine.gif) · [冲刺](docs/assets/gifs/sprint1_subject2_author_vs_mine.gif)。GIF 由 [`scripts/nscc/make_gifs.sh`](scripts/nscc/make_gifs.sh) 从评测视频截取（每段 8 秒、12 fps）。
+
+### 橙色机器人：世界模型"想象"的 0.64 秒后
+
+<p align="center">
+  <img src="docs/assets/gifs/dance2_subject1_wm_author_vs_mine.gif" alt="跳舞，叠加世界模型预测：左为上游权重，右为本复现权重" width="800">
+</p>
+<p align="center"><sub>跳舞 · 左：上游发布的权重 · 右：本复现的权重 · 橙色 = 世界模型从当前真实状态出发、让策略在模型里连续推演 32 步（0.64 s）后的预测姿态</sub></p>
+
+橙色机器人和真实物理差得很远，这是方法本身的特性，不是复现问题：两组权重的 0.64 s 预测误差同样大。
+
+| 0.64 s 预测 vs 同一时刻的真实状态（6 段平均） | 根部位置误差 | 身体各部位平均位置误差 |
+|---|---|---|
+| 上游发布的权重 | 0.49 m | 0.50 m |
+| 本复现的权重 | 0.43 m | 0.46 m |
+
+原因：世界模型按 **8 步（0.16 s）** 自回归训练（训练结束时 8 步损失 0.009），32 步已是 4 倍外推；推演中策略根据**想象的**状态出招，误差逐步累积，偏离训练数据后会给出不合物理的姿态。训练仍然有效，是因为每次想象都从真实仿真的状态出发、只用来提供局部的梯度方向，远处的步数按预测存活概率降权并由 critic 兜底，而最终成绩（40/40）完全在真实物理仿真中测得。世界模型只在训练时使用，部署时只需要策略。
 
 ## SuperMimic 在做什么
 
