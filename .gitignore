@@ -13,6 +13,7 @@ id_*
 *.npz
 *.mp4
 *.gif
+!docs/assets/gifs/*.gif
 *.tar
 *.tar.gz
 *.h5
